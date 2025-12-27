@@ -28,5 +28,6 @@ Users can upload photos, add handwritten-style captions, and generate a shareabl
 - **CSS (custom, no frameworks)**
 
 ---
-
+## Автор
+**Stefan Stojanovski**
 
