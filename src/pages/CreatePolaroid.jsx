@@ -92,7 +92,7 @@ export default function CreatePolaroid() {
             setShareLink(link);
         } catch (err) {
             console.error(err.response ? err.response.data : err);
-            alert("Error creating polaroid set");
+            alert("Error creating the polaroid set");
         } finally {
             setLoading(false);
         }
