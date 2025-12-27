@@ -1,0 +1,310 @@
+body {
+    margin: 0;
+    background: #f7f3e6;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 55px;
+}
+
+
+/* CTA */
+.cta {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+}
+
+/* HERO BUTTON */
+.cta button {
+    background: #e36b4b;
+    border: none;
+    padding: 16px 44px;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: white;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow:
+            0 12px 25px rgba(227, 107, 75, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+            0 18px 35px rgba(227, 107, 75, 0.45);
+}
+/* GALLERY */
+.gallery {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding-top: 120px;
+}
+
+/* POLAROID */
+@keyframes scatterIn {
+    0% {
+        transform: translate(var(--startX), var(--startY)) rotate(0deg) scale(0.6);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--rotate)) scale(1);
+        opacity: 1;
+    }
+}
+
+.polaroid {
+    position: absolute;
+    width: 230px;
+    height: 350px;
+    background: #fff;
+    padding: 12px 12px 35px;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+    cursor: pointer;
+    animation: scatterIn 1s ease forwards;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+.polaroid:hover {
+    transform: scale(1.08) rotate(var(--rotate));
+}
+.polaroid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: grayscale(0.35) contrast(1.3) brightness(0.9) sepia(0.35);
+    transition: filter 0.3s ease;
+}
+.polaroid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* за да не се скриени кликовите */
+    background: url('https://www.transparenttextures.com/patterns/asfalt-light.png'); /* мал „шум“ или текстура */
+    opacity: 0.08; /* јачина на ефектот */
+}
+
+.polaroid p {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Caveat', cursive;
+    font-size: 23px;
+}
+
+/* MODAL */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal {
+    background: white;
+    padding: 20px 20px 40px;
+    width: 230px;
+    height: 350px;
+}
+
+.modal img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.modal p {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+}
+/* About */
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.about-text-container {
+    flex: 1 1 400px;
+    margin-top: 70px;
+}
+
+.about-text-container p {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: #2f2f2f;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.about-image-container {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    margin-top: -300px;
+}
+
+.about-image-container .polaroid.small {
+    width: 200px;
+    padding: 10px 10px 25px;
+    rotate: -18deg;
+}
+/* LEGAL PAGES */
+.legal-page {
+    padding-top: 20px;
+    background: #f7f3e6;
+    min-height: 100vh;
+}
+
+.legal-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+    text-align: left;
+}
+
+.legal-text-container {
+    flex: 1 1 400px;
+}
+
+.legal-text-container h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 38px;
+    color: #2f2f2f;
+    margin-bottom: 30px;
+}
+
+.legal-text-container p {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: #2f2f2f;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.legal-image-container {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legal-image-container .polaroid.small {
+    width: 180px;
+    padding: 10px 10px 25px;
+    rotate: -15deg;
+    filter: grayscale(0.35) contrast(1.3) brightness(0.9) sepia(0.35);
+}
+
+/* =========================
+   MOBILE VIEW – POLAROID
+   ========================= */
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* GALLERY */
+    .gallery {
+        position: relative;
+        min-height: 70vh;
+        margin-top: -100px;
+        padding: 120px 16px 40px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* POLAROID */
+    .polaroid {
+        flex: 0 0 auto;
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        width: 200px;
+        height: 300px;
+        padding: 10px 10px 26px;
+        transform: rotate(var(--rotate));
+        animation: none;
+        scroll-snap-align: center;
+    }
+
+    .polaroid img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .polaroid:hover {
+        transform: rotate(var(--rotate));
+    }
+
+    /* CTA */
+    .cta {
+        position: relative;
+        margin-top: -120px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cta button {
+        font-size: 16px;
+        padding: 12px 26px;
+        border-radius: 999px;
+        box-shadow: 0 8px 18px rgba(227, 107, 75, 0.35);
+    }
+
+    /* MODAL */
+    .modal {
+        width: 280px;
+        height: 400px;
+    }
+
+    .modal img {
+        height: 350px;
+    }
+}
+
+
+
